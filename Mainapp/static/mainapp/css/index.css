@@ -1,0 +1,11 @@
+.create-post-link {
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Padding for better aesthetics */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.create-post-link:hover {
+    background-color: #45a049; /* Darker green on hover */
+}

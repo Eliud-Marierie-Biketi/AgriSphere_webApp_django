@@ -1,0 +1,42 @@
+<!-- index.html -->
+{% extends 'base.html' %}
+
+{% block title %}AgriSphere - Home{% endblock %}
+
+{% block content %}
+{% if username %}
+<h1>Welcome, {{ username }}!</h1>
+{% else %}
+<h1>Welcome to AgriSphere!</h1>
+{% endif %}
+    
+    <p>"AgriSphere is a dedicated platform for agriculture enthusiasts, offering a vibrant community where users can share insights, discuss agricultural practices, and connect with like-minded individuals. Explore a wealth of knowledge, stay updated on the latest trends, and engage in discussions ranging from crop cultivation to sustainable farming practices. Join us in cultivating a community that celebrates the diverse world of agriculture."</p>
+    
+    <!-- Display Recent Posts -->
+    <div>
+        <!-- Add a link to navigate to the post creation form -->
+        <a href="{% url 'Mainapp:create_post' %}" class="create_post_link">Create a new post</a><br><br>
+        <!-- Add a link to view user's posts -->
+        {% if user.is_authenticated %}
+            <a href="{% url 'Mainapp:view_my_posts' %}">View My Posts</a>
+        {% endif %}
+        <h2>Recent Posts</h2>
+
+        {% for post in posts %}
+            <div class="post-container">
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.content }}</p>
+                <p>Author: {{ post.author.username }}</p>
+                <p>Created at: {{ post.created_at }}</p>
+
+                <!-- Add links to view and delete post -->
+                <button><a href="{% url 'Mainapp:view_post' pk=post.id %}">View Details</a></button>
+                {% if user.is_authenticated and user == post.author %}
+                   <button><a href="{% url 'Mainapp:delete_post' pk=post.id %}">Delete Post</a></button> 
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

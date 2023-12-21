@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Post - AgriSphere{% endblock %}
+
+{% block content %}
+    <h2>Create Post</h2>
+    <form method="post" action="{% url 'Mainapp:create_post' %}">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+        
+        <button type="submit">Create Post</button>
+    </form>
+    <!-- Add links or additional information if needed -->
+{% endblock %}

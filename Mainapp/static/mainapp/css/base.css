@@ -1,0 +1,87 @@
+/* static/mainapp/css/base.css */
+
+body {
+    /* Set the background image and some basic styling */
+    background-image: url('/static/mainapp/images/wallpaperflare.com_wallpaper.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
+    color: #fff;  /* Text color for better readability on the background */
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #15eb58ab;
+    color: #fff;
+    padding: 10px;
+    z-index: 1000; /* Adjust the z-index as needed */
+    border-radius: 30px;
+}
+
+nav ul {
+    /* Remove default list styling */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Use flexbox for horizontal layout */
+}
+
+nav ul li {
+    margin-right: 10px; /* Adjust the space between navigation items */
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.post-container {
+    border: 1px solid #0f0f0f;  /* Border color and thickness */
+    padding: 15px;  /* Padding around each post */
+    margin: 10px 0;  /* Margin between each post */
+    background-color: #3e741b25;  /* Background color of each post container */
+    border-radius: 20px;
+    color: black;
+}
+
+/* Styling for post titles */
+.post-container h2 {
+    color: black;  /* Title text color */
+}
+
+/* Styling for post content */
+.post-container p {
+    color: #181a18;  /* Content text color */
+}
+
+.create-post-link {
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Padding for better aesthetics */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.create-post-link:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.content {
+    /* Styling for the content section */
+    padding: 20px;
+    margin: 20px;
+    background-color: rgba(48, 209, 150, 0.313);  /* Semi-transparent white background */
+}
+
+footer {
+    /* Styling for the footer */
+    background-color: #085d21;
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

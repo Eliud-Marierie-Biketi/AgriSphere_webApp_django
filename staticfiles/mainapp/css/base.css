@@ -1,0 +1,33 @@
+/* static/mainapp/css/base.css */
+
+body {
+    /* Set the background image and some basic styling */
+    background-image: url('{% static "/AgriSphere/Mainapp/static/images/wallpaperflare.com_wallpaper.jpg" %}');
+    background-size: cover;
+    background-position: center;
+    color: #fff;  /* Text color for better readability on the background */
+}
+
+nav {
+    /* Styling for the navigation bar */
+    background-color: #1db51dab;
+    color: #fff;
+    padding: 10px;
+}
+
+.content {
+    /* Styling for the content section */
+    padding: 20px;
+    margin: 20px;
+    background-color: rgba(255, 255, 255, 0.9);  /* Semi-transparent white background */
+}
+
+footer {
+    /* Styling for the footer */
+    background-color: #085d21;
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

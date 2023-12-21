@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AgriSphere{% endblock %}</title>
+    {% load static %}
+
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="{% static 'mainapp/css/base.css' %}">
+    <link rel="stylesheet" href="{%static 'mainapp/css/index.css' %}">
+
+    <!-- Add additional meta tags, stylesheets, or scripts as needed -->
+
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <!-- other navigation links -->
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'Mainapp:logout' %}">Logout</a></li>
+            {% else %}
+                <!-- show login/signup links when user is not authenticated -->
+                <li><a href="{% url 'Mainapp:login' %}">Login</a></li>
+                <li><a href="{% url 'Mainapp:signup' %}">Sign Up</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div style="text-align: center; padding: 20px;">
+        <h1 style="font-family: 'Courier New', Courier, monospace; font-size: 50px; line-height: 1.5;">AGRISPHERE</h1>
+    </div>
+    <!-- Content Section -->
+    <div class="content">
+        {% block content %}
+          <p></p>
+        {% endblock %}
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2023 AgriSphere. All rights reserved.</p>
+    </footer>
+
+    <!-- Include your custom JavaScript files or scripts -->
+    <script src="{% static 'mainapp/js/script.js' %}"></script>
+
+    <!-- Add additional scripts as needed -->
+
+</body>
+</html>

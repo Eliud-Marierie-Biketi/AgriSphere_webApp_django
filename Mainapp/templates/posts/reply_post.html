@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Reply Post - AgriSphere{% endblock %}
+
+{% block content %}
+    <h2>Reply to Post</h2>
+    <form method="post" action="{% url 'Mainapp:reply_post' post.id %}">
+        {% csrf_token %}
+        <!-- Add your reply post form fields here -->
+        <label for="content">Your Reply:</label>
+        <textarea name="content" rows="4" required></textarea><br>
+        <button type="submit">Reply</button>
+    </form>
+    <!-- Add links or additional information if needed -->
+{% endblock %}

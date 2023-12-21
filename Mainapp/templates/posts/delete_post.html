@@ -1,0 +1,15 @@
+<!-- posts/delete_post.html -->
+{% extends 'base.html' %}
+
+{% block title %}Delete Post - AgriSphere{% endblock %}
+
+{% block content %}
+    <h2>Delete Post</h2>
+    <p>Are you sure you want to delete the post "{{ post.title }}"?</p>
+    <form method="post" action="{% url 'Mainapp:delete_post' pk=post.id %}">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <br><br>
+    <button><a href="{% url 'Mainapp:index' %}">Back to Home</a></button>
+{% endblock %}

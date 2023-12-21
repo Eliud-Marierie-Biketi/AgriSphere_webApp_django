@@ -1,0 +1,20 @@
+<!-- posts/view_my_posts.html -->
+{% extends 'base.html' %}
+
+{% block title %}My Posts - AgriSphere{% endblock %}
+
+{% block content %}
+    <h2>My Posts</h2>
+
+    {% for post in user_posts %}
+        <div>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.content }}</p>
+            <p>Created at: {{ post.created_at }}</p>
+
+            <!-- Add link to view post details and delete post -->
+            <a href="{% url 'Mainapp:view_post' pk=post.id %}">View Details</a>
+            <a href="{% url 'Mainapp:delete_post' pk=post.id %}">Delete Post</a>
+        </div>
+    {% endfor %}
+{% endblock %}

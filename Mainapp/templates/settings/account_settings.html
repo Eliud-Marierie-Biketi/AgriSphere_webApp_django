@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Account Settings - AgriSphere{% endblock %}
+
+{% block content %}
+    <h2>Account Settings</h2>
+    <form method="post" action="{% url 'Mainapp:account_settings' %}">
+        {% csrf_token %}
+        <!-- Add your account settings form fields here -->
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="{{ user.name }}" required><br>
+        <label for="age">Age:</label>
+        <input type="number" name="age" value="{{ user.age }}" required><br>
+        <!-- Add more fields as needed -->
+        <button type="submit">Save Changes</button>
+    </form>
+    <!-- Add links or additional information if needed -->
+{% endblock %}

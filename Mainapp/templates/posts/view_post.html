@@ -1,0 +1,30 @@
+<!-- view_post.html -->
+{% extends 'base.html' %}
+
+{% block title %}View Post - AgriSphere{% endblock %}
+
+{% block content %}
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.content }}</p>
+    <p>Author: {{ post.author.username }}</p>
+    <p>Created at: {{ post.created_at }}</p>
+
+    <!-- Add a link or button to delete the post -->
+    {% if user.is_authenticated and user == post.author %}
+        <button><a href="{% url 'Mainapp:delete_post' pk=post.id %}" id="deletePostBtn">Delete Post</a></button>
+    {% endif %}
+
+    <!-- Add a button link to redirect back to the home page -->
+    <button><a href="{% url 'Mainapp:index' %}">Back to Home</a></button>
+{% endblock %}
+
+<!-- JavaScript to handle the confirmation dialog -->
+<script>
+    document.getElementById('deletePostBtn').addEventListener('click', function() {
+        var confirmDelete = confirm("Are you sure you want to delete this post?");
+        if (confirmDelete) {
+            // If confirmed, redirect to the delete URL
+            window.location.href = "{% url 'Mainapp:delete_post' pk=post.id %}";
+        }
+    });
+</script>
